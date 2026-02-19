@@ -1,0 +1,14 @@
+RADON SIGN DETECTION STATISTICS
+==================================================
+
+Image: 1.bmp
+Image Size: 1280 x 960 pixels
+Target: ~53 radon signs
+
+RESULTS:
+--------------------------------------------------
+LoG:      51 circles (51 with dots)
+DoG:      56 circles (56 with dots)
+DoH:      65 circles (11 with dots)
+Hough:    53 circles (23 with dots) - PERFECT
+Contour:  47 circles (13 with dots)

@@ -1,0 +1,7 @@
+matplotlib
+skimage 
+skimage.feature
+math
+skimage.color
+glob
+skimage.io 
