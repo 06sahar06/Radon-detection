@@ -1,7 +1,5 @@
 # Microscope Data Hough Report
 
-Generated: 2026-03-12
-
 ## Objective
 
 Report the number of tracks detected per image in:
@@ -9,7 +7,7 @@ Report the number of tracks detected per image in:
 - FOCUS (increasing defocus)
 - QUALITY (same image with different quality levels)
 
-Method used: Hough-circle approach from notebooks/hough_tracks_deep_analysis.ipynb and notebooks/microscope_data_track_counts.ipynb.
+Method used: Hough-circle approach
 
 ## Detection Settings
 
@@ -73,7 +71,7 @@ Method used: Hough-circle approach from notebooks/hough_tracks_deep_analysis.ipy
 | 9 | FOCUS_9.bmp | 105 |
 | 10 | FOCUS_10.bmp | 105 |
 
-Observation: track count drops strongly from level 0 to around level 4, then partially recovers at higher defocus levels.
+Observation: track count drops strongly from level 0 to around level 4, then partially recovers at higher defocus levels. **These detections are considered accurate** — the out-of-focus images produce reliable counts with the current settings.
 
 ## QUALITY Results
 
@@ -91,10 +89,12 @@ Observation: track count drops strongly from level 0 to around level 4, then par
 | 95 | FR7914_95.bmp | 46 |
 | 100 | FR7914_100.bmp | 43 |
 
-Observation: very low quality (10%) degrades detection strongly; between 20% and 100% the method remains comparatively stable.
+Observation: very low quality (10%) degrades detection strongly; between 20% and 100% the method remains comparatively stable. **Note:** the detected counts here are significantly higher than the actual track count — this folder suffers from the same overestimation issue as FRAME.
 
 ## Conclusion
 
-- The report now provides track counts per image for FRAME, FOCUS, and QUALITY only (no per-track geometry/intensity parameters).
-- For this configuration, FRAME and FOCUS have similar mean counts (~95 and ~91), while QUALITY is lower (~45).
+- The report provides track counts per image for FRAME, FOCUS, and QUALITY (no per-track geometry/intensity parameters).
+- **FOCUS detections are accurate**: the current Hough settings correctly predict the number of tracks in out-of-focus images.
+- **FRAME and QUALITY detections are overestimated**: the detected counts are significantly higher than the true track count for these image types. The current parameter configuration (radius range, accumulator threshold, contrast rescaling) is tuned toward defocused images and does not generalize well to sharply-focused or quality-degraded images.
+- Further tuning (e.g., tighter radius range, higher accumulator threshold) is needed to obtain reliable counts for FRAME and QUALITY images.
 - If needed, this report can be exported to PDF or converted into a one-page lab summary.
