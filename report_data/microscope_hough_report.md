@@ -1,7 +1,5 @@
 # Microscope Data Hough Report
 
-Generated: 2026-03-12
-
 ## Objective
 
 Report the number of tracks detected per image in:
@@ -9,7 +7,7 @@ Report the number of tracks detected per image in:
 - FOCUS (increasing defocus)
 - QUALITY (same image with different quality levels)
 
-Method used: Hough-circle approach from notebooks/hough_tracks_deep_analysis.ipynb and notebooks/microscope_data_track_counts.ipynb.
+Method used: Hough-circle approach
 
 ## Detection Settings
 
